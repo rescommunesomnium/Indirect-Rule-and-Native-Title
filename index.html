@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mabo & International Law: A Seminar Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --parchment: #f5efe3;
+    --parchment-dark: #e8ddc8;
+    --rust: #8b3a1a;
+    --rust-light: #b35030;
+    --gold: #c8960c;
+    --gold-light: #e8b830;
+    --olive: #4a5c2a;
+    --cream: #faf6ed;
+    --shadow: rgba(26,18,8,0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--parchment);
+    background-image:
+      radial-gradient(ellipse at 20% 20%, rgba(200,150,12,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(139,58,26,0.06) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(200,150,12,0.04) 40px,
+      rgba(200,150,12,0.04) 41px
+    );
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 10%; right: 10%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .header-eyebrow {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    position: relative;
+    margin-bottom: 0.75rem;
+  }
+  header h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .header-sub {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(245,239,227,0.7);
+    letter-spacing: 0.05em;
+    position: relative;
+  }
+
+  /* NAV TABS */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: var(--ink);
+    border-bottom: 3px solid var(--gold);
+    flex-wrap: wrap;
+  }
+  nav button {
+    background: transparent;
+    border: none;
+    color: rgba(245,239,227,0.6);
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem 1.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+    position: relative;
+  }
+  nav button:hover { color: var(--parchment); }
+  nav button.active {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold-light);
+    font-weight: 600;
+  }
+
+  /* MAIN CONTENT */
+  main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+  .panel { display: none; animation: fadeIn 0.35s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* SECTION CARDS */
+  .card {
+    background: var(--cream);
+    border: 1px solid var(--parchment-dark);
+    border-radius: 2px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 4px 4px 0 var(--parchment-dark), 0 2px 20px var(--shadow);
+    position: relative;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--rust);
+    border-radius: 2px 0 0 2px;
+  }
+  .card.gold-accent::before { background: var(--gold); }
+  .card.olive-accent::before { background: var(--olive); }
+
+  .card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--rust);
+    margin-bottom: 1.25rem;
+    line-height: 1.2;
+  }
+  .card.gold-accent h2 { color: #7a5c08; }
+  .card.olive-accent h2 { color: var(--olive); }
+
+  .card p {
+    line-height: 1.85;
+    font-size: 0.97rem;
+    margin-bottom: 1rem;
+    color: #2a1e0e;
+  }
+  .card p:last-child { margin-bottom: 0; }
+
+  /* PULL QUOTE */
+  blockquote {
+    border-left: 3px solid var(--gold);
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background: rgba(200,150,12,0.06);
+    border-radius: 0 2px 2px 0;
+  }
+  blockquote p {
+    font-style: italic;
+    font-size: 0.93rem;
+    color: #3a2810;
+    margin: 0;
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.78rem;
+    font-style: normal;
+    letter-spacing: 0.05em;
+    color: #7a5c30;
+    text-transform: uppercase;
+  }
+
+  /* KEY TERM BOXES */
+  .term-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  @media (max-width: 600px) { .term-grid { grid-template-columns: 1fr; } }
+  .term-box {
+    background: var(--parchment);
+    border: 1px solid var(--parchment-dark);
+    border-top: 3px solid var(--rust);
+    padding: 1.25rem;
+    border-radius: 2px;
+  }
+  .term-box.gold { border-top-color: var(--gold); }
+  .term-box.olive { border-top-color: var(--olive); }
+  .term-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--rust);
+  }
+  .term-box.gold h3 { color: #7a5c08; }
+  .term-box.olive h3 { color: var(--olive); }
+  .term-box p { font-size: 0.88rem; line-height: 1.7; color: #3a2810; margin: 0; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--rust), var(--gold), var(--olive));
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.75rem;
+    padding-left: 1.5rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.65rem; top: 0.35rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--rust);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--rust);
+  }
+  .timeline-item .year {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--rust);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+  .timeline-item p { font-size: 0.9rem; line-height: 1.7; margin: 0; }
+
+  /* QUIZ */
+  .quiz-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .quiz-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--rust);
+    margin-bottom: 0.5rem;
+  }
+  .quiz-header p { color: #5a4020; font-size: 0.92rem; }
+
+  .question-card {
+    background: var(--cream);
+    border: 1px solid var(--parchment-dark);
+    border-radius: 2px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 2px 2px 0 var(--parchment-dark);
+    display: none;
+  }
+  .question-card.active { display: block; animation: fadeIn 0.3s ease; }
+
+  .q-number {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .q-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+
+  .options { display: flex; flex-direction: column; gap: 0.6rem; }
+  .option-btn {
+    background: var(--parchment);
+    border: 1.5px solid var(--parchment-dark);
+    border-radius: 2px;
+    padding: 0.9rem 1.2rem;
+    text-align: left;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.9rem;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.2s;
+    line-height: 1.5;
+  }
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--rust);
+    background: rgba(139,58,26,0.05);
+    transform: translateX(3px);
+  }
+  .option-btn.correct {
+    background: rgba(74,92,42,0.12);
+    border-color: var(--olive);
+    color: var(--olive);
+    font-weight: 600;
+  }
+  .option-btn.incorrect {
+    background: rgba(139,58,26,0.08);
+    border-color: var(--rust);
+    color: var(--rust);
+    text-decoration: line-through;
+  }
+  .option-btn:disabled { cursor: default; }
+
+  .feedback {
+    margin-top: 1.25rem;
+    padding: 1rem 1.25rem;
+    border-radius: 2px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.correct-fb {
+    background: rgba(74,92,42,0.1);
+    border: 1px solid rgba(74,92,42,0.3);
+    color: #2d3f15;
+  }
+  .feedback.incorrect-fb {
+    background: rgba(139,58,26,0.08);
+    border: 1px solid rgba(139,58,26,0.25);
+    color: #5a2010;
+  }
+  .feedback strong { display: block; margin-bottom: 0.3rem; font-family: 'Playfair Display', serif; font-size: 1rem; }
+
+  .quiz-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .progress-text { font-size: 0.82rem; color: #7a5c30; letter-spacing: 0.05em; }
+  .btn {
+    background: var(--rust);
+    color: var(--cream);
+    border: none;
+    padding: 0.75rem 1.75rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 1px;
+    transition: all 0.2s;
+    box-shadow: 2px 2px 0 rgba(139,58,26,0.3);
+  }
+  .btn:hover { background: var(--rust-light); transform: translateY(-1px); box-shadow: 3px 3px 0 rgba(139,58,26,0.3); }
+  .btn:disabled { background: #aaa; cursor: default; transform: none; box-shadow: none; }
+  .btn.secondary { background: var(--gold); color: var(--ink); box-shadow: 2px 2px 0 rgba(200,150,12,0.3); }
+  .btn.secondary:hover { background: var(--gold-light); }
+
+  .score-display {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--cream);
+    border: 1px solid var(--parchment-dark);
+    border-radius: 2px;
+    box-shadow: 4px 4px 0 var(--parchment-dark);
+    display: none;
+  }
+  .score-display.show { display: block; animation: fadeIn 0.5s ease; }
+  .score-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--rust);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .score-display h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .score-display p { font-size: 0.92rem; color: #5a4020; margin-bottom: 1.5rem; }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    width: 100%;
+    height: 4px;
+    background: var(--parchment-dark);
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--rust), var(--gold));
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    text-align: center;
+    margin: 2rem 0;
+    position: relative;
+    color: var(--gold);
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+  }
+  .section-divider::before, .section-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%; width: 40%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--parchment-dark));
+  }
+  .section-divider::before { left: 0; }
+  .section-divider::after { right: 0; background: linear-gradient(to left, transparent, var(--parchment-dark)); }
+
+  /* COMPARISON TABLE */
+  table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.88rem; }
+  th {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+  }
+  td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--parchment-dark);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  tr:nth-child(even) td { background: rgba(232,221,200,0.4); }
+  tr:last-child td { border-bottom: none; }
+
+  /* READING NOTE */
+  .reading-note {
+    background: rgba(200,150,12,0.08);
+    border: 1px dashed var(--gold);
+    padding: 1rem 1.25rem;
+    border-radius: 2px;
+    font-size: 0.85rem;
+    color: #5a4020;
+    margin: 1.5rem 0;
+    font-style: italic;
+  }
+  .reading-note strong { font-style: normal; color: #7a5c08; }
+
+</style>
+</head>
+<body>
+
+<header>
+  <p class="header-eyebrow">Seminar Resource · Domestic Encounters with International Law</p>
+  <h1><em>Mabo</em> and the Rule of Native Title</h1>
+  <p class="header-sub">Terra Nullius · Indirect Rule · International Legal Precedent</p>
+</header>
+
+<nav>
+  <button class="active" onclick="showPanel('terra')">Terra Nullius</button>
+  <button onclick="showPanel('indirect')">Indirect Rule</button>
+  <button onclick="showPanel('privy')">Privy Council</button>
+  <button onclick="showPanel('mabo')"><em>Mabo</em> Judgment</button>
+  <button onclick="showPanel('quiz')">Self-Test</button>
+</nav>
+
+<main>
+
+  <!-- TERRA NULLIUS PANEL -->
+  <div id="terra" class="panel active">
+
+    <div class="card">
+      <h2>What is Terra Nullius?</h2>
+      <p><em>Terra nullius</em> — Latin for "land belonging to no one" — was the legal fiction that  Australia, at the time of British settlement from 1788, was effectively unoccupied.  Terra Nullius arguably originated from the Roman law concept of 'res nullius' (things owned by no one), but does not appear to have been used until the 18th/19th C Under this doctrine, the common law arguably treated the continent as legally empty: without sovereign peoples, without law, without recognisable property rights. Nuance is needed here, though, as 'res nullius' and 'terra nullius' were sometimes employed negatively (e.g. to suggest that indigenous people did validly occupy and sometimes had sovereignty over their lands, even in the 19th century.) See <a href="https://journals.sagepub.com/doi/10.1177/00905917251327257">Fitzmaurice's work</a> for more on this.</p>
+      <p>The doctrine was not simply a misunderstanding. It was a foundational <strong>ideological instrument</strong> of settler colonialism, providing legal legitimacy for dispossession. If Indigenous Australians had no prior legal relationship to land, the Crown could acquire absolute sovereignty and underlying title without treaty, conquest, or compensation.</p>
+      <blockquote>
+        <p>The rejection of terra nullius "removed the ideological foundation of settler colonisation" — but a different form of legitimation of settler occupation was needed and found.</p>
+        <cite>— Patrick Wolfe, cited in Silverstein (2007)</cite>
+      </blockquote>
+    </div>
+
+    <div class="card gold-accent">
+      <h2>Terra Nullius Before Mabo</h2>
+      <p>In Australian legal history, the doctrine operated quietly and pervasively. Courts treated Aboriginal people as having no legal title to land, and colonial legislation proceeded on that assumption for nearly two centuries. The High Court in <em>Mabo v Queensland (No 2)</em> (1992) was the first to confront and overturn this position directly.</p>
+      <div class="term-grid">
+        <div class="term-box">
+          <h3>Legal Effect</h3>
+          <p>Land was treated as Crown property from the moment of British settlement. Aboriginal people had no standing to assert prior ownership in colonial courts.</p>
+        </div>
+        <div class="term-box gold">
+          <h3>Historical Fiction</h3>
+          <p>Australia was, of course, inhabited. The fiction was maintained not out of ignorance but out of the structural needs of settler colonialism.</p>
+        </div>
+        <div class="term-box">
+          <h3>International Context</h3>
+          <p>Other jurisdictions — Canada, New Zealand — used conquest or treaty frameworks instead, which at least acknowledged prior Indigenous presence.</p>
+        </div>
+        <div class="term-box gold">
+          <h3>Comparison: Rhodesia</h3>
+          <p>In <em>In re Southern Rhodesia</em> [1919], the Privy Council extinguished native title by finding the peoples were "too low in the scale of social organization." This argument was <em>rejected</em> in Mabo as contrary to modern human rights standards.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Mabo and the Overturning of Terra Nullius</h2>
+      <p>The <em>Mabo</em> judgment, delivered by the High Court on 3 June 1992, formally rejected the doctrine of <em>terra nullius</em> and held that a form of native title survived British acquisition of sovereignty — provided it had not been extinguished by subsequent Crown grants or legislation.</p>
+      <p>The court's reasoning was cautious. Rather than addressing the validity of British sovereignty itself (declared non-justiciable), it confined its analysis to <strong>beneficial title</strong>. The sovereignty question — and the full implications of an inhabited colony — was deliberately left unresolved.</p>
+
+      <div class="reading-note">
+        <strong>Behrendt's critique (2002):</strong> The overturning of <em>terra nullius</em> was "an important legal, symbolic and psychological turning point," but the practical benefits were quickly circumscribed — particularly by the <em>Native Title Amendment Act 1998</em>, passed without consultation with Indigenous peoples.
+      </div>
+
+      <p>Critically, Silverstein argues that by replacing <em>terra nullius</em> with native title, the settler state simply substituted one form of legitimation for another. The new regime <strong>recognised</strong> a limited Indigenous presence, but only for those who could demonstrate unbroken continuity with pre-sovereignty laws and customs — a threshold that excluded the majority of Aboriginal Australians, particularly urban and southern communities.</p>
+    </div>
+
+    <div class="card olive-accent">
+      <h2>The Aftermath: A New Legal Fiction?</h2>
+      <p>Behrendt (2002) argues that Mabo created a legal fiction of "settlement" to replace <em>terra nullius</em>. While the fiction of an empty land was overturned, the High Court's refusal to adjudicate the validity of British sovereignty left the foundations of the Australian state legally unexamined.</p>
+      <p>Meanwhile, the political climate surrounding Mabo — especially the Howard government's "ten-point plan" in response to the <em>Wik</em> decision — demonstrated the vulnerability of court-won Indigenous rights to legislative override. Howard's rhetoric of "equal laws for all Australians" obscured the fact that property law had never been applied equally: <em>terra nullius</em> itself was the mechanism of dispossession.</p>
+
+      <blockquote>
+        <p>While Australia has a dominant group who embraces a psychological terra nullius, any legal advances are vulnerable to legislative extinguishment.</p>
+        <cite>— Larissa Behrendt, Mabo: Ten Years On (2002)</cite>
+      </blockquote>
+    </div>
+
+  </div>
+
+  <!-- INDIRECT RULE PANEL -->
+  <div id="indirect" class="panel">
+
+    <div class="card">
+      <h2>What is Indirect Rule?</h2>
+      <p>Indirect rule was the dominant strategy of British colonial administration across Africa in the early twentieth century. Rather than governing colonised populations directly — an expensive and politically risky process — the British devolved local administrative power to indigenous chiefs and native councils, operating under British supervision.</p>
+      <p>Lord Lugard, Governor of Nigeria and architect of the system, formulated its philosophy in his 1921 treatise <em>The Dual Mandate in British Tropical Africa</em>: the colonising power had a dual obligation, to develop the empire's resources and to advance the subject peoples — with indirect rule presented as the mechanism best achieving both aims simultaneously.</p>
+      <blockquote>
+        <p>Indirect administration is designed to adapt for the purposes of local government the tribal institutions which the Native peoples of Africa have evolved for themselves, so that the latter may develop in a constitutional manner from their own past.</p>
+        <cite>— Donald Cameron, Governor of Tanganyika (1935), cited in Silverstein</cite>
+      </blockquote>
+    </div>
+
+    <div class="card gold-accent">
+      <h2>The Three Pillars of Indirect Rule</h2>
+      <p>Silverstein, drawing on Mahmood Mamdani's analysis, identifies three institutional foundations on which the system rested:</p>
+      <div class="term-grid">
+        <div class="term-box">
+          <h3>The Tribe</h3>
+          <p>With fixed, "impervious and unchanging boundaries" — a colonial construction that simplified and often invented the social structures it purported to govern.</p>
+        </div>
+        <div class="term-box gold">
+          <h3>The Chief</h3>
+          <p>A "despotic" authority whose power was endorsed, and in practice created, by the colonial regime. The chief was central to land allocation — his prestige depended on controlling land.</p>
+        </div>
+        <div class="term-box">
+          <h3>Customary Law</h3>
+          <p>A codified body of "native law" that was, in reality, produced in the colonial encounter — shaped by British administrators, anthropologists, and indigenous elites.</p>
+        </div>
+        <div class="term-box gold">
+          <h3>The Bifurcated State</h3>
+          <p>Mamdani's concept: a state split between a "civilised" urban sphere governed by modern law, and a "tribal" rural sphere governed by indirect rule and customary law.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Indirect Rule and Land</h2>
+      <p>Land was central to the system. As Lugard wrote, the prestige of chiefs depended on their acknowledged right to allocate land. Native title — the idea that pre-colonial Indigenous communities had a recognised, if limited, interest in land — was the legal mechanism that gave this structure juridical legitimacy.</p>
+      <p>The codification of customary land law in native courts was essential to incorporation of indigenous societies into the colonial state. But as Martin Chanock showed, these "customs" were not simply recorded — they were <strong>created</strong> in the colonial encounter, shaped by the interests of Empire and serving as "instruments of colonial land policies."</p>
+      <div class="reading-note">
+        <strong>Key tension:</strong> Indirect rule required maintaining the fiction of continuity — that customary law was timeless and authentic — while simultaneously transforming indigenous societies to serve colonial economic interests.
+      </div>
+    </div>
+
+    <div class="card olive-accent">
+      <h2>Silverstein's Argument: Mabo as Indirect Rule in Australia</h2>
+      <p>Silverstein's central thesis is that the native title doctrine established in <em>Mabo</em> constitutes the <strong>formal introduction of indirect rule into Australian law</strong>. He traces a direct lineage from colonial Africa to the High Court of Australia.</p>
+      <p>This chart crudely compares British indirect rule in Africa with native title in Australia (legible to lawyers mainly in Privy Council decisions):</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Indirect Rule in Africa</th>
+            <th>Native Title in Australia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Who qualifies</strong></td>
+            <td>"Tribal" peoples not "detribalised" by colonial contact</td>
+            <td>Indigenous peoples maintaining continuous traditional laws and customs since sovereignty</td>
+          </tr>
+          <tr>
+            <td><strong>Exclusion mechanism</strong></td>
+            <td>Urban/detribalised natives governed by separate law</td>
+            <td>Urban and southern Aboriginal people effectively excluded</td>
+          </tr>
+          <tr>
+            <td><strong>Basis of rights</strong></td>
+            <td>Continuity of tribal custom, not justice for dispossession</td>
+            <td>Continuity of traditional laws, not restoration of what was stolen</td>
+          </tr>
+          <tr>
+            <td><strong>Epistemology</strong></td>
+            <td>British courts adjudicate the content of "native custom"</td>
+            <td>Australian courts determine what counts as traditional law and custom</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The <em>Yorta Yorta</em> case (2002) illustrates the logic vividly: the Yorta Yorta people were found to have "ceased to exist" as a traditional society, their customs having been interrupted by colonial contact — thus losing any native title claim. In the language of 1920s colonial administration, they had been "detribalised."</p>
+    </div>
+
+  </div>
+
+  <!-- PRIVY COUNCIL PANEL -->
+  <div id="privy" class="panel">
+
+    <div class="card">
+      <h2>The Privy Council and the Development of Native Title</h2>
+      <p>Silverstein's historical argument rests on a crucial genealogy: the legal doctrines used in <em>Mabo</em> were developed not in Australia but in a series of Privy Council decisions arising from land disputes in British West Africa between 1915 and the 1930s. The High Court consciously relied on this jurisprudence in <em>Mabo</em>.</p>
+      <p>Understanding these cases is essential to understanding both the content and the limits of native title in Australia.</p>
+
+      <div class="section-divider">⸻</div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="year">1915 — Foundational Narrative</div>
+          <p><strong>Attorney-General of Southern Nigeria v John Holt</strong>: Lord Shaw characterised British colonisation of Lagos as a humanitarian intervention to suppress the slave trade. Within this narrative, there was no intention to abolish native property rights. The commercial character of land in Lagos (plots, piers, stores) was treated as evidence of native custom evolving into capitalist property forms.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="year">1919 — Extinguishment Permitted</div>
+          <p><strong>In re Southern Rhodesia</strong>: In a settler colony context, the Privy Council held that the Matabele and Mashona peoples had no recognisable property rights, characterising them as practising only "rude agriculture" and at a "low stage of social organization." Native title was extinguished by conquest. Lord Sumner presented this as an inevitable and beneficial process. Queensland attempted to use this precedent against the Meriam people in <em>Mabo</em> — the High Court rejected it on human rights grounds.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="year">1921 — The Key Precedent</div>
+          <p><strong>Amodu Tijani v The Secretary, Southern Nigeria</strong>: The most important Privy Council decision for <em>Mabo</em>. Viscount Haldane held that pre-colonial native land rights survived British sovereignty as a "usufructuary right" held communally, qualifying the Crown's "radical title." The Crown's radical title throughout was qualified by these community rights. This framework — radical title in the Crown, native title as a burden upon it — became the direct template for <em>Mabo</em>.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="year">1930 — Chiefly Structure Codified</div>
+          <p><strong>Sakariyawo Oshodi v Moriamo Dakolo</strong>: Viscount Dunedin summarised the Lagos position: the paramount chief owns land not in fee simple but by usufructuary title, with occupiers having rights to remain and transmit holdings. This effectively devolved land control to chiefly authority, enabling indirect rule through legal doctrine.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card gold-accent">
+      <h2>Radical Title vs Native Title: The Core Distinction</h2>
+      <div class="term-grid">
+        <div class="term-box">
+          <h3>Radical Title</h3>
+          <p>The underlying, sovereign title of the Crown, acquired at the moment of annexation or cession. It does not extinguish pre-existing native rights — it simply sits beneath them.</p>
+        </div>
+        <div class="term-box gold">
+          <h3>Native Title</h3>
+          <p>A communal, usufructuary right — a right of use and enjoyment — held by Indigenous communities according to their own laws and customs. It is a "burden" on the Crown's radical title, not an independent proprietary right.</p>
+        </div>
+        <div class="term-box">
+          <h3>Beneficial Title</h3>
+          <p>The fuller ownership interest. In the Privy Council framework, native title can potentially evolve into individual beneficial ownership as custom evolves — but this evolution is assessed by colonial (settler) courts.</p>
+        </div>
+        <div class="term-box gold">
+          <h3>Extinguishment</h3>
+          <p>Native title can be extinguished — permanently and without compensation — by a Crown grant inconsistent with its continuation. In Australia, this became the mechanism for massive loss of Aboriginal land rights.</p>
+        </div>
+      </div>
+
+      <div class="reading-note">
+        <strong>Silverstein's point:</strong> These doctrines were developed to serve the logic of indirect rule in African franchise colonies. Importing them into a settler colony (Australia) — where the object is land acquisition, not labour exploitation — produces particular distortions.
+      </div>
+    </div>
+
+    <div class="card olive-accent">
+      <h2>Murray Island: A Colonial Experiment</h2>
+      <p>Silverstein notes a striking historical irony: the Murray Islands, the specific claim area in <em>Mabo</em>, were themselves the site of a late-nineteenth century experiment in indirect rule. In 1878, a British magistrate visited Mer and announced he would support a chief over the Meriam people. When the Murray Islands were annexed by Queensland in 1879, the appointed chief was made magistrate with a small police force.</p>
+      <p>The system was deemed "tyrannous" and abolished within a few years — but a chiefly figure persisted, running a council into the early twentieth century under Queensland oversight. The legal doctrine recognising Meriam native title thus came full circle: a community briefly governed by an imposed colonial chieftaincy had its traditional connection to land recognised by the same legal system that had sought to govern them through indirect rule.</p>
+    </div>
+
+  </div>
+
+  <!-- MABO JUDGMENT PANEL -->
+  <div id="mabo" class="panel">
+
+    <div class="card">
+      <h2>Reading the Mabo Judgments</h2>
+      <p>The leading judgment was delivered by Justice Brennan (with Deane and Gaudron JJ writing separately in more expansive terms). Silverstein subjects the text of these judgments to critical scrutiny, identifying the ways in which even a decision ostensibly recognising Aboriginal rights perpetuates colonial epistemologies.</p>
+    </div>
+
+    <div class="card gold-accent">
+      <h2>Cartography and Discursive Mastery</h2>
+      <p>Silverstein draws attention to how Brennan J begins his judgment: with a precise geographical description of the Murray Islands — their coordinates, dimensions, shape. This is not neutral scene-setting. The invocation of cartography, Silverstein argues, performs a colonial act: it renders the land "entirely knowable," producing it as an empty, measurable space within the national imaginary, effacing Indigenous interpretations of the same territory.</p>
+      <p>Immediately following, Brennan J turns to an anthropological description of the Meriam people — their communal life, ceremonial practices, gardening, social cohesion. The Meriam are thus "written" as people governed by custom rather than law, lacking individual agency. Silverstein reads this as the continuation of a colonial trope — encapsulating the indigene within anthropological discourse — even within a judgment asserting their rights.</p>
+      <blockquote>
+        <p>Brennan J thus begins perhaps the most significant judgment purportedly in favour of Aboriginal rights with an exercise in discursive domination over Indigenous people.</p>
+        <cite>— Silverstein (2007), p 73</cite>
+      </blockquote>
+    </div>
+
+    <div class="card">
+      <h2>The "Tide of History"</h2>
+      <p>Perhaps the most telling phrase in Brennan J's judgment is the "tide of history" — the metaphor used to explain how native title may be extinguished when traditional customs have ceased to be observed. The tide washes away native title by  impersonal and seemingly natural flow of historical change.</p>
+      <p>Silverstein reads this as echoing Lord Sumner's language in <em>In re Southern Rhodesia</em> — where colonial dispossession was presented as the "inevitable" replacement of a lower state of things with a higher one. Both formulations mask the violence, physical and epistemic, that accompanied the settler colonial project, specifically by muddying the question of human responsibility.</p>
+      <p>The practical consequence is that native title carries the seeds of its own destruction: the more colonial contact a community has experienced, the less likely they are to satisfy the continuity requirements. Those most harmed by colonisation are least eligible for the remedy.</p>
+
+      <div class="term-grid">
+        <div class="term-box">
+          <h3>The Threshold Test</h3>
+          <p>Claimants must show continuous observance of traditional laws and customs from before sovereignty to the present. The Yorta Yorta people failed this test.</p>
+        </div>
+        <div class="term-box">
+          <h3>Who is Excluded</h3>
+          <p>Urban Aboriginal communities; those in south-eastern Australia most affected by colonisation; those whose customs changed under colonial pressure — paradoxically, those who suffered most.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card olive-accent">
+      <h2>The International Law Dimension</h2>
+      <p>The <em>Mabo</em> judgments are striking for their engagement with international and imperial law. The court drew on Privy Council decisions arising from British colonies across the empire (Lagos, Southern Rhodesia, New Zealand) to construct the doctrine of native title for Australia.</p>
+      <p>Silverstein argues this makes <em>Mabo</em> legible as a domestic encounter with international law in a specific sense: the principles of indirect rule, developed in the context of the League of Nations Mandate System and British imperial administration, were imported wholesale into Australian common law. The decision, read this way, is the culmination of an international legal genealogy rooted in colonial domination.</p>
+      <p>This has significant implications for how we assess <em>Mabo</em>'s "progressive" character. The international law it mobilises was not the international human rights law of the post-war era, but the jurisprudence of empire — crafted to manage colonised peoples rather than liberate them. </p>
+      <blockquote>
+        <p>It is not only the mechanism of its extinguishment that is embedded in the "recognition" of native title, but also the incorporation of Indigenous ways of knowing and their translation into manageable forms of local governance.</p>
+        <cite>— Silverstein (2007), p 78</cite>
+      </blockquote>
+    </div>
+
+  </div>
+
+  <!-- QUIZ PANEL -->
+  <div id="quiz" class="panel">
+
+    <div class="quiz-header">
+      <h2>Self-Test Questions</h2>
+      <p>Ten questions drawn from the Silverstein and Behrendt readings. Select an answer and read the explanation before proceeding.</p>
+    </div>
+
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+
+    <!-- Q1 -->
+    <div class="question-card active" id="q1">
+      <div class="q-number">Question 1 of 10</div>
+      <div class="q-text">What does the Latin term <em>terra nullius</em> mean, and what was its legal effect in Australia?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this, false, 1)">"Land of no return" — it prevented Aboriginal people from leaving reserved areas.</button>
+        <button class="option-btn" onclick="answer(this, true, 1)">"Land belonging to no one" — it treated Australia as legally unoccupied at British settlement, denying Indigenous land rights.</button>
+        <button class="option-btn" onclick="answer(this, false, 1)">"Native land" — it formally recognised communal Indigenous title to land.</button>
+        <button class="option-btn" onclick="answer(this, false, 1)">"Forbidden territory" — it designated areas as off-limits to European settlement.</button>
+      </div>
+      <div class="feedback" id="fb1"></div>
+      <div class="quiz-nav">
+        <span class="progress-text">1 / 10</span>
+        <button class="btn" id="next1" onclick="nextQ(1)" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card" id="q2">
+      <div class="q-number">Question 2 of 10</div>
+      <div class="q-text">In Silverstein's argument, what does he claim native title in Australia introduced, beyond land rights for some Aboriginal people?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this, false, 2)">A system of treaty negotiation modelled on Canadian practice.</button>
+        <button class="option-btn" onclick="answer(this, false, 2)">A constitutional amendment recognising Indigenous sovereignty.</button>
+        <button class="option-btn" onclick="answer(this, true, 2)">A formal, national system of indirect rule over a segment of the Aboriginal population.</button>
+        <button class="option-btn" onclick="answer(this, false, 2)">A new form of direct Crown administration replacing state land laws.</button>
+      </div>
+      <div class="feedback" id="fb2"></div>
+      <div class="quiz-nav">
+        <span class="progress-text">2 / 10</span>
+        <button class="btn" id="next2" onclick="nextQ(2)" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card" id="q3">
+      <div class="q-number">Question 3 of 10</div>
+      <div class="q-text">From which British imperial context did the Privy Council cases that most directly influenced <em>Mabo</em> arise?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this, false, 3)">British India and the Bengal Presidency.</button>
+        <button class="option-btn" onclick="answer(this, false, 3)">The Caribbean colonies and Jamaica.</button>
+        <button class="option-btn" onclick="answer(this, true, 3)">British West Africa — particularly Lagos, Southern Rhodesia, Nigeria and the Gold Coast.</button>
+        <button class="option-btn" onclick="answer(this, false, 3)">Canada and the treaties with First Nations peoples.</button>
+      </div>
+      <div class="feedback" id="fb3"></div>
+      <div class="quiz-nav">
+        <span class="progress-text">3 / 10</span>
+        <button class="btn" id="next3" onclick="nextQ(3)" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card" id="q4">
+      <div class="q-number">Question 4 of 10</div>
+      <div class="q-text">What is the distinction between "radical title" and "native title" as developed in the Privy Council decisions and applied in <em>Mabo</em>?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this, false, 4)">Radical title belongs to Indigenous communities; native title belongs to the Crown.</button>
+        <button class="option-btn" onclick="answer(this, true, 4)">Radical title is the underlying sovereign title of the Crown; native title is a communal usufructuary right of Indigenous peoples that qualifies — but does not displace — the Crown's title.</button>
+        <button class="option-btn" onclick="answer(this, false, 4)">They are interchangeable terms for the same concept.</button>
+        <button class="option-btn" onclick="answer(this, false, 4)">Radical title refers to pre-colonial Indigenous ownership; native title is the Crown's right to override it.</button>
+      </div>
+      <div class="feedback" id="fb4"></div>
+      <div class="quiz-nav">
+        <span class="progress-text">4 / 10</span>
+        <button class="btn" id="next4" onclick="nextQ(4)" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card" id="q5">
+      <div class="q-number">Question 5 of 10</div>
+      <div class="q-text">Why does Silverstein argue that Brennan J's opening geographical description of the Murray Islands is critically significant?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this, false, 5)">It demonstrates a lack of research into the history of the islands.</button>
+        <button class="option-btn" onclick="answer(this, false, 5)">It accurately represents the Meriam people's own understanding of their territory.</button>
+        <button class="option-btn" onclick="answer(this, true, 5)">It performs a colonial act of cartographic mastery — rendering the land as knowable, measurable, empty space and erasing Indigenous interpretations of place.</button>
+        <button class="option-btn" onclick="answer(this, false, 5)">It establishes the jurisdictional basis for the High Court to hear the case.</button>
+      </div>
+      <div class="feedback" id="fb5"></div>
+      <div class="quiz-nav">
+        <span class="progress-text">5 / 10</span>
+        <button class="btn" id="next5" onclick="nextQ(5)" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card" id="q6">
+      <div class="q-number">Question 6 of 10</div>
+      <div class="q-text">According to Behrendt, what was one major procedural problem with the native title regime in relation to evidence of Indigenous customs?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this, false, 6)">Indigenous witnesses were barred from giving evidence in person.</button>
+        <button class="option-btn" onclick="answer(this, true, 6)">The adversarial system required Indigenous oral testimony to be weighed against non-Indigenous expert evidence before a judge, typically a white man, who would pronounce on the content of native custom — unlike the Canadian approach in <em>Delgamuukw</em> which adapted evidentiary rules for oral traditions.</button>
+        <button class="option-btn" onclick="answer(this, false, 6)">Courts refused to hear any evidence about traditional laws predating European contact.</button>
+        <button class="option-btn" onclick="answer(this, false, 6)">The Native Title Act required all evidence to be given in writing, disadvantaging oral cultures.</button>
+      </div>
+      <div class="feedback" id="fb6"></div>
+      <div class="quiz-nav">
+        <span class="progress-text">6 / 10</span>
+        <button class="btn" id="next6" onclick="nextQ(6)" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card" id="q7">
+      <div class="q-number">Question 7 of 10</div>
+      <div class="q-text">What is Mamdani's concept of the "bifurcated state," and how does Silverstein apply it to the Australian native title context?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this, false, 7)">A state divided between federal and state governments — applied to the division of power over land between the Commonwealth and States.</button>
+        <button class="option-btn" onclick="answer(this, true, 7)">A colonial state split between a capitalist sphere governed by modern law and a "tribal" sphere governed by customary law under indirect rule — applied to show how native title creates a parallel track for "traditional" Aboriginal people while excluding those integrated into mainstream Australian society.</button>
+        <button class="option-btn" onclick="answer(this, false, 7)">A state divided between elected and appointed officials — applied to the relationship between courts and parliament.</button>
+        <button class="option-btn" onclick="answer(this, false, 7)">A state with dual citizenship for settlers and Indigenous peoples — applied to different rates of land taxation.</button>
+      </div>
+      <div class="feedback" id="fb7"></div>
+      <div class="quiz-nav">
+        <span class="progress-text">7 / 10</span>
+        <button class="btn" id="next7" onclick="nextQ(7)" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-card" id="q8">
+      <div class="q-number">Question 8 of 10</div>
+      <div class="q-text">The Privy Council case of <em>In re Southern Rhodesia</em> [1919] found that the Matabele and Mashona peoples had no recognisable property rights. How did the High Court in <em>Mabo</em> treat this precedent?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this, false, 8)">It followed the precedent — accepting that some Indigenous peoples are too "low" in social organisation to hold property rights.</button>
+        <button class="option-btn" onclick="answer(this, false, 8)">It distinguished it on the facts — finding Australia was colonised by cession, not conquest.</button>
+        <button class="option-btn" onclick="answer(this, true, 8)">It rejected the approach as contrary to modern standards of human rights and anti-discrimination law, instead preferring the framework established in <em>Amodu Tijani</em>.</button>
+        <button class="option-btn" onclick="answer(this, false, 8)">It applied the decision fully to Aboriginal Australians in remote areas but not to urban communities.</button>
+      </div>
+      <div class="feedback" id="fb8"></div>
+      <div class="quiz-nav">
+        <span class="progress-text">8 / 10</span>
+        <button class="btn" id="next8" onclick="nextQ(8)" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="question-card" id="q9">
+      <div class="q-number">Question 9 of 10</div>
+      <div class="q-text">Behrendt identifies native title as being vulnerable as a property right in a way unique to Australian law. What is the central vulnerability she identifies?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this, false, 9)">Native title cannot be inherited by the children of claimants.</button>
+        <button class="option-btn" onclick="answer(this, false, 9)">Native title rights automatically expire after fifty years.</button>
+        <button class="option-btn" onclick="answer(this, true, 9)">Native title is the only form of property in Australia whose extinguishment does not give rise to compensation per se — and following the 1998 amendments, it was uncertain whether the Racial Discrimination Act even continued to protect native title holders, meaning their property could be interfered with in ways no other property holder would face.</button>
+        <button class="option-btn" onclick="answer(this, false, 9)">Native title can only be held by individuals, not communities, making it practically impossible to claim.</button>
+      </div>
+      <div class="feedback" id="fb9"></div>
+      <div class="quiz-nav">
+        <span class="progress-text">9 / 10</span>
+        <button class="btn" id="next9" onclick="nextQ(9)" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-card" id="q10">
+      <div class="q-number">Question 10 of 10</div>
+      <div class="q-text">Silverstein concludes that the "logic of elimination" in settler colonialism is not disturbed by native title, but further animated. What does he mean by this?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this, false, 10)">That the <em>Native Title Act 1993</em> provides a legal mechanism for the physical removal of Aboriginal communities.</button>
+        <button class="option-btn" onclick="answer(this, true, 10)">That native title, by incorporating Indigenous ways of knowing into "manageable forms of local governance," extends colonial reach rather than challenging it — assimilating Indigenous difference into the national legal body in a controlled, limited form that forecloses more radical challenges to settler sovereignty.</button>
+        <button class="option-btn" onclick="answer(this, false, 10)">That the High Court's decision was intended to encourage Aboriginal people to relocate to remote areas.</button>
+        <button class="option-btn" onclick="answer(this, false, 10)">That native title claims eliminate any possibility of treaty negotiations in Australia.</button>
+      </div>
+      <div class="feedback" id="fb10"></div>
+      <div class="quiz-nav">
+        <span class="progress-text">10 / 10</span>
+        <button class="btn" id="next10" onclick="showScore()" disabled>See Results →</button>
+      </div>
+    </div>
+
+    <!-- Score -->
+    <div class="score-display" id="scoreDisplay">
+      <div class="score-big" id="scoreBig">0/10</div>
+      <h3 id="scoreMsg">Results</h3>
+      <p id="scoreDesc"></p>
+      <button class="btn secondary" onclick="restartQuiz()">Retake Quiz</button>
+    </div>
+
+  </div>
+
+</main>
+
+<script>
+const panels = ['terra','indirect','privy','mabo','quiz'];
+const navBtns = document.querySelectorAll('nav button');
+
+function showPanel(id) {
+  panels.forEach(p => {
+    document.getElementById(p).classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+  navBtns.forEach((b,i) => {
+    b.classList.toggle('active', panels[i] === id);
+  });
+}
+
+// Quiz logic
+let score = 0;
+let answered = new Array(10).fill(false);
+
+const feedbacks = {
+  1: {
+    correct: "<strong>Correct.</strong> Terra nullius — 'land belonging to no one' — was the legal fiction underpinning British colonisation of Australia. It denied any prior Indigenous legal relationship to land, enabling the Crown to acquire sovereignty and title without treaty or compensation. Silverstein notes that its rejection in Mabo did not eliminate settler colonialism's logic — it merely found a new form of legitimation.",
+    incorrect: "<strong>Incorrect.</strong> Terra nullius means 'land belonging to no one.' Its legal effect was to treat Australia as unoccupied at settlement, denying Indigenous Australians any recognised land rights under the common law."
+  },
+  2: {
+    correct: "<strong>Correct.</strong> Silverstein's central thesis is that native title constituted the formal national introduction of indirect rule over a segment of the Aboriginal population — specifically those who could demonstrate unbroken continuity with pre-sovereignty laws and customs. This parallels how the British governed 'tribal' Africans through their own (colonial-constructed) customary law.",
+    incorrect: "<strong>Incorrect.</strong> Silverstein argues that beyond conferring limited land rights, native title introduced a form of indirect rule: those able to demonstrate 'traditional' connection are governed through their own laws by settler courts, replicating the structure of British colonial administration in Africa."
+  },
+  3: {
+    correct: "<strong>Correct.</strong> The key precedents — Amodu Tijani, In re Southern Rhodesia, Attorney-General of Southern Nigeria, and the Lagos lagoon cases — all arose from British colonial Africa. This is central to Silverstein's argument: the doctrines recognising (and limiting) native title were forged in the context of indirect rule in Africa, not in response to Australian circumstances.",
+    incorrect: "<strong>Incorrect.</strong> The Privy Council cases directly influencing Mabo arose from British West Africa — particularly Lagos (Nigeria), Southern Rhodesia, and the Gold Coast. Silverstein traces this genealogy to argue that Mabo imported the legal framework of African indirect rule."
+  },
+  4: {
+    correct: "<strong>Correct.</strong> This distinction, developed in Amodu Tijani (1921) and adopted in Mabo, is fundamental. The Crown holds radical (sovereign) title from annexation; native title is a communal usufructuary right that exists as a burden upon — qualifying but not displacing — that radical title. It is this framing that limits native title: it is always subordinate and extinguishable.",
+    incorrect: "<strong>Incorrect.</strong> Radical title is the Crown's underlying sovereign title. Native title is the communal, usufructuary right of Indigenous peoples — a burden on radical title. The Crown's title is not displaced, only qualified."
+  },
+  5: {
+    correct: "<strong>Correct.</strong> Silverstein draws on critical geography to argue that Brennan J's opening cartographic description enacts colonial 'mastery over space' — producing the Murray Islands as measurable, knowable, empty national territory. Indigenous spatial interpretations are replaced by imperial categorisation, and the land is produced as a commodity subject to legal adjudication.",
+    incorrect: "<strong>Incorrect.</strong> Silverstein argues the geographical description is a colonial act: it renders Indigenous land 'knowable' and 'empty' through cartography, effacing Indigenous interpretations of the same space. This echoes Edward Said's observation that imperialism is 'an act of geographical violence.'"
+  },
+  6: {
+    correct: "<strong>Correct.</strong> Behrendt contrasts Australia unfavourably with Canada's Delgamuukw (1997) approach, where the Supreme Court required evidentiary rules to be adapted to place oral Aboriginal history on an equal footing with documentary evidence. In Australia, Indigenous oral testimony is weighed through the ordinary adversarial process, with judges — typically non-Indigenous — pronouncing on the content of Indigenous custom.",
+    incorrect: "<strong>Incorrect.</strong> Behrendt's concern is that the adversarial evidentiary process — where Indigenous oral traditions are weighed against non-Indigenous expert evidence before a judge — disadvantages claimants. She contrasts this with Canada's Delgamuukw, which required courts to adapt their evidentiary approach for oral traditions."
+  },
+  7: {
+    correct: "<strong>Correct.</strong> Mamdani's 'bifurcated state' describes the colonial split between a capitalist urban sphere (governed by modern law) and a 'tribal' peasant sphere (governed by customary law/indirect rule). Silverstein applies this to Australia: native title creates a parallel legal track for those deemed 'traditional' — those integrated into Australian economic and social life are excluded, just as 'detribalised' Africans were excluded from indirect rule's protections.",
+    incorrect: "<strong>Incorrect.</strong> The bifurcated state is Mamdani's concept of a colonial state divided between modern law for urban/capitalist subjects and customary law for 'tribal' subjects. Silverstein applies this to show how native title replicates this division: 'traditional' Aboriginal people may claim native title; those who have been 'detribalised' by colonial contact cannot."
+  },
+  8: {
+    correct: "<strong>Correct.</strong> Queensland argued, based on In re Southern Rhodesia, that Aboriginal Australians were 'so low in the scale of social organization' as to have no property rights. The High Court rejected this as contrary to modern human rights and anti-discrimination standards, instead applying the more protective Amodu Tijani framework. However, Silverstein notes this rejection was not complete — the 'tide of history' doctrine still echoes Southern Rhodesia's logic.",
+    incorrect: "<strong>Incorrect.</strong> The High Court rejected the In re Southern Rhodesia approach as inconsistent with modern human rights standards. It instead preferred the Amodu Tijani framework, which recognised native land rights as surviving sovereignty. However, Silverstein shows that the 'tide of history' reasoning in Mabo still echoes Southern Rhodesia's logic of inevitable displacement."
+  },
+  9: {
+    correct: "<strong>Correct.</strong> Behrendt identifies a double vulnerability: native title extinguishment attracts no automatic compensation (unlike all other property interests), and following the 1998 amendments, the application of the Racial Discrimination Act 1975 to native title became uncertain. If the RDA did not apply, Aboriginal people would be the only Australians whose property could be interfered with without the procedural protections available to all other property holders.",
+    incorrect: "<strong>Incorrect.</strong> Behrendt identifies two key vulnerabilities: (1) native title is the only property whose extinguishment does not per se attract compensation; (2) after the 1998 amendments, it was uncertain whether the Racial Discrimination Act protected native title holders at all — potentially leaving them without procedural rights available to every other property holder."
+  },
+  10: {
+    correct: "<strong>Correct.</strong> Silverstein's conclusion is that native title does not challenge the settler colonial logic of elimination — it extends it. By translating Indigenous ways of knowing into 'manageable forms of local governance,' incorporating them into the national legal body in a controlled and limited form, native title forecloses more radical challenges to the legitimacy of settler sovereignty. The logic of elimination is animated further, not disrupted.",
+    incorrect: "<strong>Incorrect.</strong> Silverstein argues that native title further animates the logic of elimination by incorporating Indigenous difference into the settler legal system in a managed, limited form. Indigenous ways of knowing are translated into 'manageable forms of local governance' — assimilated into the national body without genuinely threatening settler sovereignty."
+  }
+};
+
+function answer(btn, isCorrect, qNum) {
+  if (answered[qNum - 1]) return;
+  answered[qNum - 1] = true;
+
+  const allBtns = btn.closest('.options').querySelectorAll('.option-btn');
+  allBtns.forEach(b => b.disabled = true);
+
+  const fb = document.getElementById('fb' + qNum);
+  const nextBtn = document.getElementById('next' + qNum);
+
+  if (isCorrect) {
+    btn.classList.add('correct');
+    score++;
+    fb.className = 'feedback correct-fb show';
+    fb.innerHTML = feedbacks[qNum].correct;
+  } else {
+    btn.classList.add('incorrect');
+    // Highlight correct answer
+    allBtns.forEach(b => {
+      if (b !== btn && !b.classList.contains('incorrect')) {
+        // find the correct one
+      }
+    });
+    fb.className = 'feedback incorrect-fb show';
+    fb.innerHTML = feedbacks[qNum].incorrect;
+    // highlight correct
+    allBtns.forEach(b => {
+      if (b !== btn) {
+        b.onclick.toString();
+      }
+    });
+  }
+  // highlight correct answer always
+  allBtns.forEach(b => {
+    const onclickStr = b.getAttribute('onclick');
+    if (onclickStr && onclickStr.includes('true')) {
+      b.classList.add('correct');
+    }
+  });
+
+  nextBtn.disabled = false;
+  updateProgress(qNum);
+}
+
+function updateProgress(qNum) {
+  const pct = (qNum / 10) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+function nextQ(current) {
+  document.getElementById('q' + current).classList.remove('active');
+  if (current < 10) {
+    document.getElementById('q' + (current + 1)).classList.add('active');
+  }
+}
+
+function showScore() {
+  document.getElementById('q10').classList.remove('active');
+  const sd = document.getElementById('scoreDisplay');
+  sd.classList.add('show');
+  document.getElementById('progressFill').style.width = '100%';
+
+  document.getElementById('scoreBig').textContent = score + '/10';
+
+  let msg, desc;
+  if (score === 10) {
+    msg = 'Outstanding';
+    desc = 'A comprehensive grasp of both the Silverstein and Behrendt readings. You have a firm command of the Mabo genealogy and its critiques.';
+  } else if (score >= 8) {
+    msg = 'Excellent';
+    desc = 'Strong command of the key arguments. Review the questions you missed — the distinctions around indirect rule and the Privy Council cases are particularly important.';
+  } else if (score >= 6) {
+    msg = 'Good Effort';
+    desc = 'Solid understanding of the core themes. Revisit the sections on indirect rule and the Privy Council genealogy before your seminar.';
+  } else if (score >= 4) {
+    msg = 'Keep Reviewing';
+    desc = 'Some gaps remain. Focusing on the relationship between the Privy Council decisions and the Mabo judgment will be particularly useful.';
+  } else {
+    msg = 'More Reading Needed';
+    desc = 'Return to both readings and use the content sections above before attempting the quiz again.';
+  }
+
+  document.getElementById('scoreMsg').textContent = msg;
+  document.getElementById('scoreDesc').textContent = desc;
+}
+
+function restartQuiz() {
+  score = 0;
+  answered = new Array(10).fill(false);
+  document.getElementById('progressFill').style.width = '0%';
+
+  for (let i = 1; i <= 10; i++) {
+    const card = document.getElementById('q' + i);
+    card.classList.remove('active');
+    const opts = card.querySelectorAll('.option-btn');
+    opts.forEach(b => {
+      b.disabled = false;
+      b.classList.remove('correct','incorrect');
+    });
+    const fb = document.getElementById('fb' + i);
+    fb.className = 'feedback';
+    fb.innerHTML = '';
+    document.getElementById('next' + i).disabled = true;
+  }
+
+  document.getElementById('scoreDisplay').classList.remove('show');
+  document.getElementById('q1').classList.add('active');
+}
+</script>
+</body>
+</html>
